@@ -11,12 +11,12 @@ class Database
   public function connect()
   {
     // echo __DIR__.'/../env.php';
-    include(__DIR__.'/../../env.php');
-    // $env_server = "localhost";
-    // $env_username = "root";
-    // $env_password = "root";
-    // $env_database = "task";
-    // $env_port = "8889";
+    // include(__DIR__.'/../../env.php');
+    $env_server = "localhost";
+    $env_username = "root";
+    $env_password = "root";
+    $env_database = "certify";
+    $env_port = "8889";
 
     $this->server = $env_server;
     $this->username = $env_username;

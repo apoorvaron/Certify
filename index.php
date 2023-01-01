@@ -23,7 +23,7 @@
         session_start();
         error_reporting(0);
 ?>
-        <?php
+<?php
   if(isset($_POST['submit'])){
     require('./database.php');
     $database = new Database();
@@ -35,6 +35,7 @@
     $password = md5($password);
 
     $query = "SELECT * from users where email='$email' and password ='$password'";
+    // var_dump($query);
     $result = mysqli_query($db,$query);
 
     if(mysqli_num_rows($result)==1){
@@ -46,16 +47,16 @@
         }
 
       $row = mysqli_fetch_array($result);
-      $_SESSION["".$row['username'].""]="".$row['username']."";
-      $_SESSION["".$row['uniqueNo'].""]="".$row['uniqueNo']."";
+    //   $_SESSION["".$row['username'].""]="".$row['username']."";
+    //   $_SESSION["".$row['uniqueNo'].""]="".$row['uniqueNo']."";
 
-      $_SESSION["username"]="".$row['username']."";
-      $_SESSION["uno"]="".$row['uniqueNo']."";
+    //   $_SESSION["username"]="".$row['username']."";
+    //   $_SESSION["uno"]="".$row['uniqueNo']."";
 
 
       $_SESSION['start'] = time();
       $_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
-      echo "<script>window.location.replace('./index?username=".$row['username']."&uno=".$row['uniqueNo']."')</script>";
+      echo "<script>window.location.replace('./user/newLink?username=".$row['username']."&uno=".$row['uniqueNo']."')</script>";
     }
     else{
 
@@ -72,8 +73,8 @@
         }else{
             echo "  <script>
                         $(document).ready(function(){
-                            swal('Please Register First !!','','error').then(function() {
-                                window.location='./register';
+                            swal('You are not Authorised !!','','error').then(function() {
+                                window.location='./';
                             });
                         });
                     </script>";

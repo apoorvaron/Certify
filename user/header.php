@@ -2,22 +2,22 @@
 <?php 
     $username = $_GET['username'];
     $uno = $_GET['uno'];
-    session_start();
-    if($_SESSION["".$username.""]==""){
-        echo "<script>window.location.replace('./logout.php?username=".$_SESSION['username']."&uno=".$_SESSION['uno']."')</script>";
-    }
-    if($_SESSION["".$uno.""]==""){
-        echo "<script>window.location.replace('./logout.php?username=".$_SESSION['username']."&uno=".$_SESSION['uno']."')</script>";
-        // header('location: ./login');
-    }
+    // session_start();
+    // if($_SESSION["".$username.""]==""){
+    //     echo "<script>window.location.replace('./logout.php?username=".$_SESSION['username']."&uno=".$_SESSION['uno']."')</script>";
+    // }
+    // if($_SESSION["".$uno.""]==""){
+    //     echo "<script>window.location.replace('./logout.php?username=".$_SESSION['username']."&uno=".$_SESSION['uno']."')</script>";
+    //     // header('location: ./login');
+    // }
 
-    $now = time(); // Checking the time now when home page starts.
+    // $now = time(); // Checking the time now when home page starts.
 
-    if ($now > $_SESSION['expire']) {
-        session_destroy();
-        echo "<script>window.location.replace('./logout.php?username=".$_SESSION['username']."&uno=".$_SESSION['uno']."')</script>";
-        // header('location: ../');
-    }
+    // if ($now > $_SESSION['expire']) {
+    //     session_destroy();
+    //     echo "<script>window.location.replace('./logout.php?username=".$_SESSION['username']."&uno=".$_SESSION['uno']."')</script>";
+    //     // header('location: ../');
+    // }
 
 ?>
 <style>
