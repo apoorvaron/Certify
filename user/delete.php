@@ -28,14 +28,43 @@
 
         </style>
     </head>
+<?php
+    if(isset($_POST['submit'])){
+        require('../database.php');
+        $database = new Database();
+        $db = $database->connect();
+        
+        $sql = "SELECT * from certificates where id=".$_GET['id'];
+        $res = mysqli_query($db,$sql);
+        $ro = mysqli_fetch_array($res);
+
+        $query = "DELETE from certificates where id=".$_GET['id'];
+        // var_dump($query);
+        $result = mysqli_query($db,$query);
 
 
-<script>
+ 
+        // echo "<br><br><br><br><br><br><br><br><br><br>dsafdsdgnfhmvfgdsgatrshfgjhfdhsydfdgjfhjbmjhfhydsfdghnm";
+        // var_dump($ro['uniqueNo']);
+        // echo "../verify/".$ro['uniqueNo'].".pdf";
+        unlink("../verify/".$ro['uniqueNo'].".pdf");
+        unlink("../verify/".$ro['uniqueNo'].".png");
 
-function yesDelete(){
 
-}
-</script>
+
+
+        if(($result)==1){
+            header('location: ./');
+            
+        }else{
+            header('location: ./');
+        }
+    }
+
+
+?>
+
+
     <body class="fixed-left">
         <!-- Begin page -->
         <div id="wrapper">
@@ -85,7 +114,8 @@ function yesDelete(){
                                                  <div class="col-md-12 text-center">
                                                     <div class="form-group mb-0">
                                                         <div>
-                                                            <input type="submit" value="Yes" onclick="yesDelete()" class="btn btn-danger" >
+                                                            
+                                                            <input type="submit" value="Yes" id="submit" name="submit" class="btn btn-danger" >
                                                             <a href="./index" class="btn btn-success waves-effect waves-light"  >
                                                                 <!-- <button type="submit" name="submit"  style="color:white"> -->
                                                                 No

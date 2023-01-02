@@ -1,3 +1,10 @@
+<!-- readme update (sitename, )
+swal alert
+change password
+utkrisht image change , coordinates
+single generate -->
+
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
         <!-- jQuery CDN -->
