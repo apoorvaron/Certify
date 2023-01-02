@@ -93,18 +93,17 @@
                                                                 while($row = mysqli_fetch_array($result)){  
                                                                         echo "
                                                                         <tr>
-                                                                        <td>".$row['id']."</td>
-                                                                        <td>".$row['uniqueNo']."</td>
-                                                                        <td>".$row['name']."...</td>
-                                                                        <td>".$row['email']."...</td>
-                                                                        <td>".$row['enrollment']."...</td>
-                                                                        <td>".$row['branch']."</td>
-                                                                        <td><a href='./preview.php?username=".$username."&uno=".$uno."&linkID=".$row['linkID']."'> <button type='button' class='tabledit-download-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-arrow-down'></span></button></a></td>
-                                                                        <td><a href='./successDelete.php?username=".$username."&uno=".$uno."&linkID=".$row['linkID']."'  class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>
+                                                                            <td>".$row['id']."</td>
+                                                                            <td>".$row['uniqueNo']."</td>
+                                                                            <td>".$row['name']."...</td>
+                                                                            <td>".$row['email']."...</td>
+                                                                            <td>".$row['enrollment']."...</td>
+                                                                            <td>".$row['branch']."</td>
+                                                                            <td><a href='./preview?id=".$row['id']."'> <button type='button' class='tabledit-download-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-arrow-down'></span></button></a></td>
+                                                                            <td><a href='./delete?id=".$row['id']."'  class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>
                                                                         
                                                                         </tr>
-                                                                            ";  
-                                                                            $sno++;  
+                                                                            ";   
                                                                 }
                                                             mysqli_free_result($result);
                                                         } else{

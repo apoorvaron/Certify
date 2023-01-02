@@ -142,7 +142,7 @@ img.vert-move {
                 <div class="card-body">
 
                     <h3 class="text-center mt-0">
-                        <a href="./" class="logo logo-admin"><img class="vert-move" src="./assets/img/loginpage--logo.png" height="100" alt="logo"></a>
+                        <a href="./" class="logo logo-admin"><img class="vert-move" src="./assets/img/inside-header-logo.png" height="100" alt="logo"></a>
                     </h3>
 
                     <h6 class="text-center">Login / Sign In</h6>

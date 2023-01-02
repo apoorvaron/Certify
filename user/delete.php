@@ -31,25 +31,9 @@
 
 
 <script>
-<?php
-    $username=$_GET['username'];
-    $uno= $_GET['uno'];
-?>
+
 function yesDelete(){
-    // console.log("HI");
-    $.ajax({
-        url: '../admin/dBconn/api.php/?q=deleteLink&linkID=<?php echo $_GET["linkID"]; ?>',
-        type: 'POST',
-        dataType: 'json',
-        success: function (data, textStatus, xhr) {
-            console.log(data);
-            console.log("mii");
-            window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
-        },
-        error: function (xhr, textStatus, errorThrown) {
-            window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
-        }
-    });
+
 }
 </script>
     <body class="fixed-left">
@@ -94,15 +78,7 @@ function yesDelete(){
            
 
                                             <form class="repeater" method="POST">
-                                                <div data-repeater-list="category-group">
-                                                    <div data-repeater-item>
-                                                <div class="row">
-                                                
-                                            
-                                            
-                                        </div>
-                                            </div>
-                                        </div>
+                                               
                                                  <!-- <div class="col-md-12" >
                                         <input data-repeater-create type="button" value="+ Add Family" class="btn btn-warning ">
                                                 </div> -->
@@ -111,7 +87,7 @@ function yesDelete(){
                                                         <div>
                                                             <input type="submit" value="Yes" onclick="yesDelete()" class="btn btn-danger" >
                                                             <button type="submit" name="submit"  class="btn btn-success waves-effect waves-light">
-                                                                <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" style="color:white">No</a>
+                                                                <a href="./index" style="color:white">No</a>
                                                             </button>
 
                                                       
