@@ -87,7 +87,7 @@
                                                     $database = new Database();
                                                     $db = $database->connect();
 
-                                                    $sql = "SELECT * FROM certificates";
+                                                    $sql = "SELECT * FROM certificates ORDER BY id DESC";
                                                     if($result = mysqli_query($db, $sql)){
                                                         if(mysqli_num_rows($result) > 0){
                                                                 while($row = mysqli_fetch_array($result)){  
@@ -99,7 +99,7 @@
                                                                             <td>".$row['email']."</td>
                                                                             <td>".$row['enrollment']."</td>
                                                                             <td>".$row['branch']."</td>
-                                                                            <td><a href='./preview?id=".$row['id']."'> <button type='button' class='tabledit-download-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-arrow-down'></span></button></a></td>
+                                                                            <td><a href='../verify/".$row['uniqueNo'].".pdf' download> <button type='button' class='tabledit-download-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-arrow-down'></span></button></a></td>
                                                                             <td><a href='./delete?id=".$row['id']."'  class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>
                                                                         
                                                                         </tr>

@@ -124,9 +124,9 @@
             }
 
             // echo $noOfRows;
-            // echo "  <script>
-            //             window.location.replace('./faqadmin/utkrishtBulkDown.php?noOfRows=". $noOfRows ."')    
-            //         </script>";
+            echo "  <script>
+                        window.location.replace('./bulkDown.php?noOfRows=". $noOfRows ."')    
+                    </script>";
         }
 ?>
 
@@ -174,7 +174,7 @@
                                             <!-- <h3 class="mt-0 header-title"></h3> -->
                                             <!-- <p class="text-muted font-14"></p> -->
             
-                                        <form action = "#" method = "POST" enctype="multipart/form-data">
+                                        <form method = "POST" enctype="multipart/form-data">
 
                                             <div class="row">
                                                 <div class="col-md-12">
