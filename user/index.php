@@ -1,7 +1,5 @@
 <?php 
         error_reporting(0);
-        include(__DIR__.'/../siteName.php');
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,12 +7,12 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <title>User Panel</title>
+        <title>Admin Panel</title>
         <meta content="Admin Dashboard" name="description" />
         <meta content="themesdesign" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <link rel="shortcut icon" href="../assets/images/logout-logo.png">
+        <link rel="shortcut icon" href="../assets/img/inside-header-logo.png">
 
         <!-- DataTables -->
         <link href="assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
@@ -30,13 +28,6 @@
 
     </head>
 
-    <?php
-
-        if(isset($_GET['short'])){
-            $short = $_GET['short'];
-            echo "<script>  navigator.clipboard.writeText('".$short."');</script>";
-        }
-    ?>
 
     <body class="fixed-left">
         <!-- Begin page -->
@@ -52,13 +43,10 @@
                         <div class="row">
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
-                                    <h4 class="page-title">Shortened Links</h4>
-                                        <?php 
-                                            $username = $_GET['username'];
-                                            $uno = $_GET['uno'];
-                                        ?>
+                                    <h4 class="page-title">Generated Certificates</h4>
+                                 
                                         
-                                       <a href="newLink.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button type="submit" class="btn btn-success waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Make New Link</button></a>
+                                       <a href="generate"><button type="submit" class="btn btn-success waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Generate Certificates</button></a>
                                     </div>
                                 </div>
                         </div>
@@ -72,7 +60,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <h3 class="mt-0 header-title">Your Links</h3>
-                                            <p class="text-muted  font-14">Here , You can edit , delete or make new customised shorted links.
+                                            <p class="text-muted  font-14">Here , You can edit, delete, download or make new customised certificates.
                                             </p>
             
                                             <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%; text-align:center;">
@@ -80,11 +68,12 @@
                                                 <thead >
                                                 <tr>
                                                     <th>Sl.No</th>
-                                                    <th>Link is For</th>
-                                                    <th>Original Link</th>
-                                                    <th>Shorted Link</th>
-                                                    <th>Copy</th>
-                                                    <th>Edit</th>
+                                                    <th>Unique No.</th>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Enrollment No.</th>
+                                                    <th>Branch</th>
+                                                    <th>Download</th>
                                                     <th>Delete</th>
                                                    
 
@@ -97,22 +86,20 @@
                                                     // require('../admin/dBconn/database.php');
                                                     $database = new Database();
                                                     $db = $database->connect();
-                                                    $sno = 1;
-                                                    $uno=$_GET['uno'];
-                                                    // echo $uno;
-                                                    $sql = "SELECT * FROM links WHERE uniqueNo='".$uno."'";
+
+                                                    $sql = "SELECT * FROM certificates";
                                                     if($result = mysqli_query($db, $sql)){
                                                         if(mysqli_num_rows($result) > 0){
                                                                 while($row = mysqli_fetch_array($result)){  
-                                                                    $row['originalLink'] = substr($row['originalLink'],0,30);
                                                                         echo "
                                                                         <tr>
-                                                                        <td>".$sno."</td>
-                                                                        <td>".$row['linkIsFor']."</td>
-                                                                        <td>".$row['originalLink']."...</td>
-                                                                        <td ><a style='color:green;' target='_blank' href='".$siteName."".$row['shortenLink']."'>".$siteName."".$row['shortenLink']."</a></td>
-                                                                        <td class='text-center'><a  href='./successCopy.php?username=".$username."&uno=".$uno."&short=".$siteName."".$row['shortenLink']."&for=".$row['linkIsFor']."'><i class='fa fa-files-o' aria-hidden='true'></i></a></td>
-                                                                        <td><a href='./preview.php?username=".$username."&uno=".$uno."&linkID=".$row['linkID']."'> <button type='button' class='tabledit-edit-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-pencil'></span></button></a></td>
+                                                                        <td>".$row['id']."</td>
+                                                                        <td>".$row['uniqueNo']."</td>
+                                                                        <td>".$row['name']."...</td>
+                                                                        <td>".$row['email']."...</td>
+                                                                        <td>".$row['enrollment']."...</td>
+                                                                        <td>".$row['branch']."</td>
+                                                                        <td><a href='./preview.php?username=".$username."&uno=".$uno."&linkID=".$row['linkID']."'> <button type='button' class='tabledit-download-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-arrow-down'></span></button></a></td>
                                                                         <td><a href='./successDelete.php?username=".$username."&uno=".$uno."&linkID=".$row['linkID']."'  class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>
                                                                         
                                                                         </tr>

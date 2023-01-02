@@ -42,21 +42,6 @@
         <!-- jQuery CDN -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        function blockSpecialChar(e){
-            let value  = document.querySelector('#shortenLink').value;
-            let previewBtn = document.querySelector('#previewBtn');
-
-            if(value.length!=0){
-
-                previewBtn.removeAttribute("hidden");
-            }
-            var k;
-            document.all ? k = e.keyCode : k = e.which;
-            return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
-        }
-    </script>
     <?php
         if(isset($_POST['submit'])){
             require('../admin/dBconn/database.php');
@@ -153,8 +138,8 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
-                                        <h4 class="page-title">Make New Link</h4>
-                                       <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button type="" class="btn btn-success waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Shorten Links</button></a>
+                                        <h4 class="page-title">Generate Certificates</h4>
+                                       <a href="./index"><button type="" class="btn btn-success waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">All Certificates</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -168,7 +153,7 @@
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true">×</span>
                                                 </button>
-                                                <i class="mdi mdi-information-outline font-32"></i><strong>Shorty</strong> 
+                                                <i class="mdi mdi-information-outline font-32"></i><strong>Certify</strong> 
                                             </div>
             
                                             <h3 class="mt-0 header-title"></h3>
@@ -178,50 +163,20 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label></label>
-                                                        <input type="text"  class="form-control" id="linkIsFor" name="linkIsFor" required placeholder="Link is for"/>
+                                                        <label>Upload Excel (.xlsx)</label>
+                                                        <br>
+                                                        <input type="file"  class="" id="" name="" required />
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <!-- <label>Original Link</label> -->
-                                                        <input type="text"  class="form-control" id="originalLink" name="originalLink" required placeholder="Original Link"/>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                  
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <!-- <label>Shorten Link</label> -->
-                                                </div>
-                                            </div>
-                                            <!-- <div class="row"> -->
-                                                <div class=" form-control col-md-12"> 
-                                                    <span class="form-group">
-                                                        <label><b><?php echo $siteName ?></b></label>
-                                                        <span><input type="text" onkeypress="return blockSpecialChar(event)"   placeholder="Custom Name" style="border:0px;padding-left:0px;;max-width: 50%;"   required id="shortenLink" name="shortenLink"/></span>
-                                                    </span>
-                                                          
-                                                </div>
-                                            <!-- </div> -->
-
-
-
                                              
-                                            <br>
-                                           <br>
                                             <div class="row">
                                                 <div class="col-md-6 text-center">
                                                     <div class="form-group mb-0">
                                                         <div >
-                                                            <button type="button" name="generateRandom" id="generateRandom" class="btn btn-success waves-effect waves-light">
-                                                                Random No.
+                                                            <button type="button" name="" id="" class="btn btn-success waves-effect waves-light">
+                                                                Download Sample File
                                                             </button>
-                                                          
-                                                            <button  class='btn btn-primary new' type='button' hidden id="previewBtn"  data-toggle='modal' data-target='#myModal' onclick = join()>Preview</button>
-                                                        
                                                         </div>
                                                     </div>
                                                 </div>
@@ -259,25 +214,6 @@
                     </div> <!-- Page content Wrapper -->
 
                 </div> <!-- content -->
-
-
-          <!-- *************************** Generate Random Number   *****************************  -->
-
-                <?php
-                                $randNum = bin2hex(random_bytes(3));;
-
-                                echo "
-                                        <script>
-                                                document.querySelector('#generateRandom').addEventListener('click',function(){
-                                                        console.log('sadfsdg');
-                                                        document.querySelector('#shortenLink').value='". $randNum."';
-                                                    });
-                                        </script>
-                                ";
-                ?>
-
-          <!-- *************************** Generate Random Number ends  *****************************  -->
-
 
 
           <!-- *************************** Get preview modal   *****************************  -->

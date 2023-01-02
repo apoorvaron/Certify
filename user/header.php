@@ -138,7 +138,7 @@
                                 <a href="index" class="waves-effect waves-light"><i class="mdi mdi-view-dashboard"></i><span> All Certificates</span></a>
                             </li>
                             <li>
-                                <a href="newLink" class="waves-effect waves-light"><i class="mdi mdi-tooltip-outline-plus"></i><span>Create Certificates</span></a>
+                                <a href="generate" class="waves-effect waves-light"><i class="mdi mdi-tooltip-outline-plus"></i><span>Generate Certificates</span></a>
                             </li>
 <!--
                             <li>
@@ -156,7 +156,7 @@
                             </li> -->
                         
                             <li>
-                                <a href="changeCredentials" class="waves-effect waves-light"><i class="ti-lock"></i><span> Change password </span></a>
+                                <a href="changeCredentials" class="waves-effect waves-light"><i class="ti-lock"></i><span> Change Credentials </span></a>
                             </li>
                             <li>
                                 <a href="./logout" class="waves-effect waves-light"><i class="mdi mdi-logout"></i><span> Logout </span></a>
