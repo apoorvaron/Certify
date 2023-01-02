@@ -4,14 +4,13 @@
     // $uno = $_GET['uno'];
     session_start();
     if($_SESSION["email"]=="" || $_SESSION["auth"]==false){
-        echo "<script>window.location.replace('./logout.php')</script>";
+        echo "<script>window.location.replace('./logout')</script>";
     }
     $now = time(); // Checking the time now when home page starts.
 
     if ($now > $_SESSION['expire']) {
         session_destroy();
-        echo "<script>window.location.replace('./logout.php')</script>";
-        // header('location: ../');
+        echo "<script>window.location.replace('./logout')</script>";
     }
 
 ?>
@@ -120,7 +119,7 @@
                 <div class="topbar-left">
                     <div class="text-center">
                         <!--<a href="index.html" class="logo"><i class="fa fa-paw"></i> Aplomb</a>-->
-                        <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="logo"><img style="margin-top: 10%; border-radius: 30%;" src="../assets/img/inside-header-logo.png" height="100" alt="logo"></a>
+                        <a href="index" class="logo"><img style="margin-top: 10%; border-radius: 30%;" src="../assets/img/inside-header-logo.png" height="100" alt="logo"></a>
                     </div>
                 </div>
                
@@ -136,10 +135,10 @@
                             </li>
 -->
                             <li>
-                                <a href="index.php" class="waves-effect waves-light"><i class="mdi mdi-view-dashboard"></i><span> Shortned Links</span></a>
+                                <a href="index" class="waves-effect waves-light"><i class="mdi mdi-view-dashboard"></i><span> All Certificates</span></a>
                             </li>
                             <li>
-                                <a href="newLink.php" class="waves-effect waves-light"><i class="mdi mdi-tooltip-outline-plus"></i><span> Make New Link</span></a>
+                                <a href="newLink" class="waves-effect waves-light"><i class="mdi mdi-tooltip-outline-plus"></i><span>Create Certificates</span></a>
                             </li>
 <!--
                             <li>
@@ -157,10 +156,10 @@
                             </li> -->
                         
                             <li>
-                                <a href="change-password.php" class="waves-effect waves-light"><i class="ti-lock"></i><span> Change password </span></a>
+                                <a href="changeCredentials" class="waves-effect waves-light"><i class="ti-lock"></i><span> Change password </span></a>
                             </li>
                             <li>
-                                <a href="./logout.php" class="waves-effect waves-light"><i class="mdi mdi-logout"></i><span> Logout </span></a>
+                                <a href="./logout" class="waves-effect waves-light"><i class="mdi mdi-logout"></i><span> Logout </span></a>
                             </li>
 
 <!--
@@ -341,7 +340,7 @@
                                         </div>
                                         
                                         <!-- <a class="dropdown-item text-dark" href="profile.php"><i style="color:red;"class="	far fa-address-card text-dark" aria-hidden="true"></i> Profile</a>                                        -->
-                                        <a class="dropdown-item text-danger" href="./logout.php"><i style="color:black;" class="mdi mdi-power text-danger"></i> Logout</a>
+                                        <a class="dropdown-item text-danger" href="./logout"><i style="color:black;" class="mdi mdi-power text-danger"></i> Logout</a>
                                        
                                        
                                   
