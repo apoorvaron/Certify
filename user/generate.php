@@ -1,6 +1,5 @@
-<?php 
-        include(__DIR__.'/../siteName.php');
-
+<?php
+    use Shuchkin\SimpleXLSX;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,85 +42,94 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <?php
-        if(isset($_POST['submit'])){
-            require('../admin/dBconn/database.php');
-            $database = new Database();
-            $db = $database->connect();
-        
-            $uno = $_GET['uno'];
-            $linkIsFor = $_POST['linkIsFor'];
-            $originalLink = $_POST['originalLink'];
-            $shortenLink = $_POST['shortenLink'];
-            $shortenLink = explode(" ",$shortenLink);
-            $shortenLink = join("_",$shortenLink);
-            // $shortenLink = "".$siteName."".$short;
-            if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
+        require('../database.php');
+        $database = new Database();
+        $db = $database->connect();
+
+        if(isset($_FILES['excel']['name'])){
+
+            // require('../blogAdmin/database.php');
+
+            $sql = "SELECT * FROM certificates ORDER BY id DESC LIMIT 1";
+            $result = mysqli_query($db, $sql);
+
+            if(mysqli_num_rows($result) > 0){
+                $row = mysqli_fetch_array($result);
+                $u = $row['uniqueNo'];
+                $id = substr($u, -4);
+                // echo $id;
+                ord($id);
+                
+            }
+            else{
+                $id = 1;
+            }
+            include "xlsx.php";
+            $noOfRows = 0;
+
+            if($db){
+                $excel = SimpleXLSX::parse($_FILES['excel']['tmp_name']);
+                // print_r($excel->rows());
+                $i=0;
+                $query="";
+                $unique = "000";
 
 
-                $query = "SELECT * from links WHERE shortenLink='".$shortenLink."'";
-                $result = mysqli_query($db,$query);
-                $count_rows = mysqli_num_rows($result);
-                if($count_rows>0){
-                    echo "  <script>
-                                $(document).ready(function(){
-                                    swal('Custom Name Not Available !!','','error');
-                                });
-                            </script>";
-                }else{
+                foreach ($excel->rows() as $key => $row) {
+                    // print_r($row);
+                    $q="";
+                    if($i>0){
+                        $id = $id+1;
+                        $unique=  "'".$unique.$id. "',";
+                        //echo $unique;
+                    }   
+                    // $confirmation = false;
 
-                    $query = "SELECT * FROM links WHERE uniqueNo='".$uno."' AND originalLink='".$originalLink."'";
-                    $result = mysqli_query($db,$query);
-                    $row = mysqli_fetch_array($result);
-                    $count_rows = mysqli_num_rows($result);
-                // echo "<br><br><br><br><br><br>adegsrdhgfjhgdgrearwethjyfgytrtwyjygj.".$query;
+                    // echo ($confirmation);
 
-                    if($count_rows>0){
-                        echo "<script>window.location.replace('./alreadyOriginal.php?username=".$_GET['username']."&uno=".$_GET['uno']."&linkID=".$row['linkID']."')</script>";
-                    }else{
-                        $sql = "INSERT INTO `links` (`uniqueNo`,`linkIsFor`, `originalLink`, `shortenLink`) VALUES ('$uno','$linkIsFor', '$originalLink', '$shortenLink')";
-                        $result = mysqli_query($db,$sql);
-                        if($result){
-                            echo "  <script>
-                                        $(document).ready(function(){
-                                            swal('Successfully Created !!','','success').then(function() {
-                                                window.location = './index.php?username=".$_GET['username']."&uno=".$_GET['uno']."';
-                                            });
-                                        });
-                                    </script>";
-                        }else{
-                                echo "  <script>
-                                            $(document).ready(function(){
-                                                swal('Try Again !!','','error');
-                                            });
-                                        </script>";
+                    foreach ($row as $key => $cell) {
+                        //$unique = strtolower(substr(str_shuffle($str_result),0, 10));$sql = "SELECT * FROM certificate ORDER BY id DESC LIMIT 1";
+                        
+
+                        
+                        // echo $unique;
+                        if($i>0){
+                            $q.="'".$cell. "',";
                         }
                     }
-
-                }
-
-
-
+                
             
+                    if($i>0){
+                        $query="INSERT INTO certificates (uniqueNO, name,email, enrollment,branch) values (".$unique.rtrim($q,",").");";
+                        $array = explode(',', $q);
+                        // echo $q;
+                        $email = $array [1];
 
 
 
-
-
-            }else{
-                echo "  <script>
-                            $(document).ready(function(){
-                                swal('Please Enter Valid URL !!','','info');
-                            });
-                        </script>";
+                        
+                        $unique = "000";
+                        // echo $query;
+                    }
+                    
+                    if($i>0){
+                        if(mysqli_query($db,$query)){
+                                // echo "true";
+                                // echo $i;
+                                $noOfRows = $i;
+                        }
+                    }
+                    $i++;
+                }
             }
 
-            
-    
-            // echo "<br><br><br><br><br><br><br>eqfwgretgfnerwqedgnretrqthdgjrwteqwrhdgtehryw".$result;
-            
-          
+            // echo $noOfRows;
+            // echo "  <script>
+            //             window.location.replace('./faqadmin/utkrishtBulkDown.php?noOfRows=". $noOfRows ."')    
+            //         </script>";
         }
-    ?>
+?>
+
 
     <body class="fixed-left">
         <!-- Begin page -->
@@ -166,13 +174,15 @@
                                             <!-- <h3 class="mt-0 header-title"></h3> -->
                                             <!-- <p class="text-muted font-14"></p> -->
             
-                                            <form  method="POST"  >
+                                        <form action = "#" method = "POST" enctype="multipart/form-data">
+
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label style="font-weight:200"></label>
                                                         <br>
-                                                        <input type="file"  class="" id="" name="" required />
+                                                        <input type = "file" name = "excel" required />
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
