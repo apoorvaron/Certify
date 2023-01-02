@@ -136,10 +136,10 @@
                             </li>
 -->
                             <li>
-                                <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="mdi mdi-view-dashboard"></i><span> Shortned Links</span></a>
+                                <a href="index.php" class="waves-effect waves-light"><i class="mdi mdi-view-dashboard"></i><span> Shortned Links</span></a>
                             </li>
                             <li>
-                                <a href="newLink.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="mdi mdi-tooltip-outline-plus"></i><span> Make New Link</span></a>
+                                <a href="newLink.php" class="waves-effect waves-light"><i class="mdi mdi-tooltip-outline-plus"></i><span> Make New Link</span></a>
                             </li>
 <!--
                             <li>
@@ -332,7 +332,7 @@
                                 <li class="list-inline-item dropdown notification-list">
                                     <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light nav-user" data-toggle="dropdown" href="" role="button"
                                         aria-haspopup="false" aria-expanded="false">
-                                        <img src="../assets/img/inside-header-logo.png" alt="user" class="rounded-circle">
+                                        <img src="../assets/img/inside-header-logo.png" style="background-color:white" alt="user" class="rounded-circle">
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                         <!-- item-->
@@ -356,29 +356,10 @@
                                     </button>
                                 </li>
                                 <li class="hide-phone app-search mt-4">
-                                <?php 
-                                                    // require('../admin/dBconn/database.php');
-                                                    $database = new Database();
-                                                    $link = $database->connect();
-                                                    $sql = "SELECT * FROM users WHERE id=1";
-                                                    if($result = mysqli_query($db, $sql)){
-                                                        if(mysqli_num_rows($result) > 0){
-                                                                while($row = mysqli_fetch_array($result)){  
-                                                                    $row['email'] =strstr($row['email'] , '@', true);
-                                                                        echo "
-                                                                        <h4 style='color:#fff;'>Hello ".$row['email']." !</h4>
-                                                                            ";  
-                                                                       
-                                                                }
-                                                            mysqli_free_result($result);
-                                                        } else{
-                                                            echo "<p class='lead'><em></em></p>";
-                                                        }
-                                                    } else{
-                                                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-                                
-                                                    }
-                                                ?>
+                                <?php   
+                                            $headerName =strstr($_SESSION['email'] , '@', true);
+                                            echo "<h4 style='color:#fff;'>Hello ".$headerName." !</h4>";               
+                                ?>
 
                        
                                 </li>
