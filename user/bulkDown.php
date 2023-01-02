@@ -1,4 +1,5 @@
 <?php
+    include(__DIR__.'/../siteName.php');
     header("Content-type: application/zip");
     include_once '../database.php';
     require('fpdf.php');
@@ -44,7 +45,7 @@
                     $file = $path.uniqid().".png";
                     // $ecc = 'L';
                     $frame_Size = 1;
-                    $qrtext = "http://localhost:8888/certify/verify/".$id_num.".pdf";
+                    $qrtext = $siteName."verify/".$id_num.".pdf";
                     QRcode::png($qrtext, $file,'L', 5.2, $frame_Size);
                     $qr = imagecreatefrompng($file);
                     $marge_right = 50;
@@ -80,13 +81,11 @@
                 header("Content-Disposition: attachment; filename=$uni-$endCert.zip"); 
                 readfile("../verify/BulkDownload.zip");
                 unlink('../verify/BulkDownload.zip');
-                echo "  <script>
-                            $(document).ready(function(){
-                                swal('Generated Successfully !!','','success').then(function() {
-                                    window.location='./';
-                                });
-                            });
-                        </script>";
+
             }      
     }
+    echo "  <script>
+                window.location.replace('./index');
+            </script>
+        ";
 ?>

@@ -128,7 +128,7 @@ img.vert-move {
 
     <!-- <body class="fixed-left" style="background-image:url(assets/images/background.jpg)"> -->
     <body class="fixed-left" style="  background-color: #0e1d34;
-  background-image: url('../assets/img/hero-bg.png');
+  background-image: url('./assets/img/hero-bg.png');
   background-size: cover;
   background-position: center;">
         
