@@ -57,7 +57,7 @@
 
       $_SESSION['start'] = time();
       $_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
-      echo "<script>window.location.replace('./user/newLink')</script>";
+      echo "<script>window.location.replace('./user/index')</script>";
     }
     else{
 

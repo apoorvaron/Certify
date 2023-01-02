@@ -8,7 +8,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <title>Make New Link </title>
+        <title>Generate Certificates </title>
         <meta content="Admin Dashboard" name="description" />
         <meta content="themesdesign" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -139,7 +139,8 @@
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
                                         <h4 class="page-title">Generate Certificates</h4>
-                                       <a href="./index"><button type="" class="btn btn-success waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">All Certificates</button></a>
+                                       <!-- <a href="./index"><button type="" class="btn btn-success waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">All Certificates</button></a> -->
+                                       <a href="./sample.xlsx"  style="position: absolute;top: 29px;right: 15px;" download class="btn btn-success waves-effect waves-light">Download Sample File</a>
                                     </div>
                                 </div>
                             </div>
@@ -149,21 +150,27 @@
                                 <div class="col-md-12 col-xl-12">
                                     <div class="card m-b-30">
                                         <div class="card-body">
-                                            <div class="alert alert-success alert-dismissible fade show d-flex align-items-center" role="alert">
+
+                                        <h3 class="mt-0 header-title">Upload Excel (.xlsx)</h3>
+                                            <!-- <p class="text-muted  font-14">
+                                            </p> -->
+
+
+                                            <!-- <div class="alert alert-success alert-dismissible fade show d-flex align-items-center" role="alert">
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true">×</span>
                                                 </button>
                                                 <i class="mdi mdi-information-outline font-32"></i><strong>Certify</strong> 
-                                            </div>
+                                            </div> -->
             
-                                            <h3 class="mt-0 header-title"></h3>
-                                            <p class="text-muted font-14"></p>
+                                            <!-- <h3 class="mt-0 header-title"></h3> -->
+                                            <!-- <p class="text-muted font-14"></p> -->
             
                                             <form  method="POST"  >
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label>Upload Excel (.xlsx)</label>
+                                                        <label style="font-weight:200"></label>
                                                         <br>
                                                         <input type="file"  class="" id="" name="" required />
                                                     </div>
@@ -174,9 +181,11 @@
                                                 <div class="col-md-6 text-center">
                                                     <div class="form-group mb-0">
                                                         <div >
-                                                            <button type="button" name="" id="" class="btn btn-success waves-effect waves-light">
-                                                                Download Sample File
-                                                            </button>
+                                                            <!-- <a href="/images/myw3schoolsimage.jpg" download class="btn btn-success waves-effect waves-light">
+
+                                                                    Download Sample File
+                                                            </a> -->
+                                                            <!-- </button> -->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -188,7 +197,7 @@
                                                     <div class="form-group mb-0">
                                                         <div >
                                                             <button type="submit" name="submit" id="submit" class="btn btn-success waves-effect waves-light">
-                                                                Create
+                                                                Generate
                                                             </button>
                                                          
                                                  

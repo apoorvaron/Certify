@@ -12,7 +12,7 @@
         <meta content="themesdesign" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <link rel="shortcut icon" href="../assets/img/inside-header-logo.png">
+        <link rel="shortcut icon" href="../assets/img/logo.png">
 
         <!-- DataTables -->
         <link href="assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
@@ -43,7 +43,7 @@
                         <div class="row">
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
-                                    <h4 class="page-title">Generated Certificates</h4>
+                                    <h4 class="page-title">All Certificates</h4>
                                  
                                         
                                        <a href="generate"><button type="submit" class="btn btn-success waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Generate Certificates</button></a>
@@ -59,8 +59,8 @@
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h3 class="mt-0 header-title">Your Links</h3>
-                                            <p class="text-muted  font-14">Here , You can edit, delete, download or make new customised certificates.
+                                            <h3 class="mt-0 header-title">Certificates</h3>
+                                            <p class="text-muted  font-14">Here , You can  download, delete or make new customised certificates.
                                             </p>
             
                                             <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%; text-align:center;">
@@ -95,9 +95,9 @@
                                                                         <tr>
                                                                             <td>".$row['id']."</td>
                                                                             <td>".$row['uniqueNo']."</td>
-                                                                            <td>".$row['name']."...</td>
-                                                                            <td>".$row['email']."...</td>
-                                                                            <td>".$row['enrollment']."...</td>
+                                                                            <td>".$row['name']."</td>
+                                                                            <td>".$row['email']."</td>
+                                                                            <td>".$row['enrollment']."</td>
                                                                             <td>".$row['branch']."</td>
                                                                             <td><a href='./preview?id=".$row['id']."'> <button type='button' class='tabledit-download-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-arrow-down'></span></button></a></td>
                                                                             <td><a href='./delete?id=".$row['id']."'  class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>

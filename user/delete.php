@@ -86,9 +86,11 @@ function yesDelete(){
                                                     <div class="form-group mb-0">
                                                         <div>
                                                             <input type="submit" value="Yes" onclick="yesDelete()" class="btn btn-danger" >
-                                                            <button type="submit" name="submit"  class="btn btn-success waves-effect waves-light">
-                                                                <a href="./index" style="color:white">No</a>
-                                                            </button>
+                                                            <a href="./index" class="btn btn-success waves-effect waves-light"  >
+                                                                <!-- <button type="submit" name="submit"  style="color:white"> -->
+                                                                No
+                                                                <!-- </button> -->
+                                                            </a>
 
                                                       
                                                         </div>
