@@ -1,23 +1,18 @@
 
 <?php 
-    $username = $_GET['username'];
-    $uno = $_GET['uno'];
-    // session_start();
-    // if($_SESSION["".$username.""]==""){
-    //     echo "<script>window.location.replace('./logout.php?username=".$_SESSION['username']."&uno=".$_SESSION['uno']."')</script>";
-    // }
-    // if($_SESSION["".$uno.""]==""){
-    //     echo "<script>window.location.replace('./logout.php?username=".$_SESSION['username']."&uno=".$_SESSION['uno']."')</script>";
-    //     // header('location: ./login');
-    // }
+    // $username = $_GET['username'];
+    // $uno = $_GET['uno'];
+    session_start();
+    if($_SESSION["email"]=="" || $_SESSION["auth"]==false){
+        echo "<script>window.location.replace('./logout.php')</script>";
+    }
+    $now = time(); // Checking the time now when home page starts.
 
-    // $now = time(); // Checking the time now when home page starts.
-
-    // if ($now > $_SESSION['expire']) {
-    //     session_destroy();
-    //     echo "<script>window.location.replace('./logout.php?username=".$_SESSION['username']."&uno=".$_SESSION['uno']."')</script>";
-    //     // header('location: ../');
-    // }
+    if ($now > $_SESSION['expire']) {
+        session_destroy();
+        echo "<script>window.location.replace('./logout.php')</script>";
+        // header('location: ../');
+    }
 
 ?>
 <style>
@@ -108,18 +103,10 @@
 
 </style>
 <?php
-        include_once '../admin/dBconn/database.php';
+        include_once '../database.php';
         $database = new Database();
         $db = $database->connect();
 
-        $username = $_GET['username'];
-        $uniqueNo = $_GET['uno'];
-
-        $sql = "SELECT * from users WHERE username='".$username."'";
-        $result = mysqli_query($db,$sql);
-
-        $row = mysqli_fetch_array($result);
-        $imgPath = $row['img'];
     
 ?>
 
@@ -168,14 +155,12 @@
                             <!-- <li>
                                 <a href="transcations.php" class="waves-effect waves-light"><i class="mdi mdi-wallet"></i><span> Transaction </span></a>
                             </li> -->
+                        
                             <li>
-                                <a href="profile.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="mdi mdi-account"></i><span>  Profile </span></a>
+                                <a href="change-password.php" class="waves-effect waves-light"><i class="ti-lock"></i><span> Change password </span></a>
                             </li>
                             <li>
-                                <a href="change-password.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="ti-lock"></i><span> Change password </span></a>
-                            </li>
-                            <li>
-                                <a href="./logout.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>" class="waves-effect waves-light"><i class="mdi mdi-logout"></i><span> Logout </span></a>
+                                <a href="./logout.php" class="waves-effect waves-light"><i class="mdi mdi-logout"></i><span> Logout </span></a>
                             </li>
 
 <!--
@@ -347,7 +332,7 @@
                                 <li class="list-inline-item dropdown notification-list">
                                     <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light nav-user" data-toggle="dropdown" href="" role="button"
                                         aria-haspopup="false" aria-expanded="false">
-                                        <img src="<?php echo $imgPath ?>" alt="user" class="rounded-circle">
+                                        <img src="../assets/img/inside-header-logo.png" alt="user" class="rounded-circle">
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                         <!-- item-->
@@ -355,7 +340,7 @@
                                             <h5>Welcome</h5>
                                         </div>
                                         
-                                        <a class="dropdown-item text-dark" href="profile.php?username=<?php echo $username ?>&uno=<?php echo $uno?>"><i style="color:red;"class="	far fa-address-card text-dark" aria-hidden="true"></i> Profile</a>                                       
+                                        <!-- <a class="dropdown-item text-dark" href="profile.php"><i style="color:red;"class="	far fa-address-card text-dark" aria-hidden="true"></i> Profile</a>                                        -->
                                         <a class="dropdown-item text-danger" href="./logout.php"><i style="color:black;" class="mdi mdi-power text-danger"></i> Logout</a>
                                        
                                        
@@ -375,7 +360,7 @@
                                                     // require('../admin/dBconn/database.php');
                                                     $database = new Database();
                                                     $link = $database->connect();
-                                                    $sql = "SELECT * FROM users WHERE uniqueNo='".$uno."'";
+                                                    $sql = "SELECT * FROM users WHERE id=1";
                                                     if($result = mysqli_query($db, $sql)){
                                                         if(mysqli_num_rows($result) > 0){
                                                                 while($row = mysqli_fetch_array($result)){  

@@ -50,13 +50,14 @@
     //   $_SESSION["".$row['username'].""]="".$row['username']."";
     //   $_SESSION["".$row['uniqueNo'].""]="".$row['uniqueNo']."";
 
-    //   $_SESSION["username"]="".$row['username']."";
+      $_SESSION["email"]="".$row['email']."";
     //   $_SESSION["uno"]="".$row['uniqueNo']."";
+      $_SESSION['auth']=true;
 
 
       $_SESSION['start'] = time();
       $_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
-      echo "<script>window.location.replace('./user/newLink?username=".$row['username']."&uno=".$row['uniqueNo']."')</script>";
+      echo "<script>window.location.replace('./user/newLink')</script>";
     }
     else{
 
