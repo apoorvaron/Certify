@@ -138,7 +138,10 @@
                                 <a href="index" class="waves-effect waves-light"><i class="mdi mdi-view-dashboard"></i><span> All Certificates</span></a>
                             </li>
                             <li>
-                                <a href="generate" class="waves-effect waves-light"><i class="mdi mdi-tooltip-outline-plus"></i><span>Generate Certificates</span></a>
+                                <a href="generateSingle" class="waves-effect waves-light"><i class="mdi mdi-tooltip-outline-plus"></i><span>Single Certificate</span></a>
+                            </li>
+                            <li>
+                                <a href="generate" class="waves-effect waves-light"><i class="mdi mdi-tooltip-outline-plus"></i><span>Bulk Certificates</span></a>
                             </li>
 <!--
                             <li>

@@ -8,7 +8,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <title>Make New Link </title>
+        <title>Generate Certificate</title>
         <meta content="Admin Dashboard" name="description" />
         <meta content="themesdesign" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -44,82 +44,34 @@
 
     <?php
         if(isset($_POST['submit'])){
-            require('../admin/dBconn/database.php');
+            require('../database.php');
             $database = new Database();
             $db = $database->connect();
         
-            $uno = $_GET['uno'];
-            $linkIsFor = $_POST['linkIsFor'];
-            $originalLink = $_POST['originalLink'];
-            $shortenLink = $_POST['shortenLink'];
-            $shortenLink = explode(" ",$shortenLink);
-            $shortenLink = join("_",$shortenLink);
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $enrollment = $_POST['enrollment'];
+            $branch = $_POST['branch'];
             // $shortenLink = "".$siteName."".$short;
-            if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
-
-
-                $query = "SELECT * from links WHERE shortenLink='".$shortenLink."'";
-                $result = mysqli_query($db,$query);
-                $count_rows = mysqli_num_rows($result);
-                if($count_rows>0){
-                    echo "  <script>
-                                $(document).ready(function(){
-                                    swal('Custom Name Not Available !!','','error');
-                                });
-                            </script>";
-                }else{
-
-                    $query = "SELECT * FROM links WHERE uniqueNo='".$uno."' AND originalLink='".$originalLink."'";
-                    $result = mysqli_query($db,$query);
-                    $row = mysqli_fetch_array($result);
-                    $count_rows = mysqli_num_rows($result);
-                // echo "<br><br><br><br><br><br>adegsrdhgfjhgdgrearwethjyfgytrtwyjygj.".$query;
-
-                    if($count_rows>0){
-                        echo "<script>window.location.replace('./alreadyOriginal.php?username=".$_GET['username']."&uno=".$_GET['uno']."&linkID=".$row['linkID']."')</script>";
-                    }else{
-                        $sql = "INSERT INTO `links` (`uniqueNo`,`linkIsFor`, `originalLink`, `shortenLink`) VALUES ('$uno','$linkIsFor', '$originalLink', '$shortenLink')";
-                        $result = mysqli_query($db,$sql);
-                        if($result){
-                            echo "  <script>
-                                        $(document).ready(function(){
-                                            swal('Successfully Created !!','','success').then(function() {
-                                                window.location = './index.php?username=".$_GET['username']."&uno=".$_GET['uno']."';
-                                            });
-                                        });
-                                    </script>";
-                        }else{
-                                echo "  <script>
-                                            $(document).ready(function(){
-                                                swal('Try Again !!','','error');
-                                            });
-                                        </script>";
-                        }
-                    }
-
-                }
-
-
-
-            
-
-
-
-
-
-            }else{
+ 
+            $sql = "INSERT INTO `certificates` (`name`,`email`, `enrollment`, `branch`) VALUES ('$name','$email', '$enrollment', '$branch')";
+            echo  "<br><br><br><br><br><br><br><br><br><br><br>sadfhgj,etasrydjfhghfetarsrydfkguyftuyrsdtufykgulytudrysdtufigjlhlgyftudfiyghkjl..........".$sql;
+            $result = mysqli_query($db,$sql);
+            if($result){
                 echo "  <script>
                             $(document).ready(function(){
-                                swal('Please Enter Valid URL !!','','info');
+                                swal('Successfully Created !!','','success').then(function() {
+                                    window.location = './index.php?username=".$_GET['username']."&uno=".$_GET['uno']."';
+                                });
                             });
                         </script>";
+            }else{
+                    echo "  <script>
+                                $(document).ready(function(){
+                                    swal('Try Again !!','','error');
+                                });
+                            </script>";
             }
-
-            
-    
-            // echo "<br><br><br><br><br><br><br>eqfwgretgfnerwqedgnretrqthdgjrwteqwrhdgtehryw".$result;
-            
-          
         }
     ?>
 
@@ -155,31 +107,47 @@
                                                 </button>
                                                 <i class="mdi mdi-information-outline font-32"></i><strong>Shorty</strong> 
                                             </div> -->
-<!--             
-                                            <h3 class="mt-0 header-title"></h3>
-                                            <p class="text-muted font-14"></p> -->
+<!--              -->
+                                            <h3 class="mt-0 header-title">Generate Single Certificate</h3>
+                                            <!-- <p class="text-muted font-14"></p> -->
             
                                             <form  method="POST"  >
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label></label>
-                                                            <input type="text"  class="form-control" id="linkIsFor" name="linkIsFor" required placeholder="Link is for"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                      
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
                                                             <!-- <label>Original Link</label> -->
-                                                            <input type="text"  class="form-control" id="originalLink" name="originalLink" required placeholder="Original Link"/>
+                                                            <input type="text"  class="form-control" id="name" name="name" required placeholder="Name"/>
                                                         </div>
                                                     </div>
                                                 </div>
                                     
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <!-- <label>Shorten Link</label> -->
+                                                        <div class="form-group">
+                                                            <!-- <label>Original Link</label> -->
+                                                            <input type="text"  class="form-control" id="email" name="email" required placeholder="Email"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                    
+
+                                    
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <!-- <label>Original Link</label> -->
+                                                            <input type="text"  class="form-control" id="branch" name="branch" required placeholder="Branch"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                    
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <!-- <label>Original Link</label> -->
+                                                            <input type="text"  class="form-control" id="enrollment" name="enrollment" required placeholder="Enrollment No."/> 
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <!-- <div class="row"> -->
@@ -245,23 +213,6 @@
 
                 </div> <!-- content -->
 
-
-          <!-- *************************** Generate Random Number   *****************************  -->
-
-                <?php
-                                $randNum = bin2hex(random_bytes(3));;
-
-                                echo "
-                                        <script>
-                                                document.querySelector('#generateRandom').addEventListener('click',function(){
-                                                        console.log('sadfsdg');
-                                                        document.querySelector('#shortenLink').value='". $randNum."';
-                                                    });
-                                        </script>
-                                ";
-                ?>
-
-          <!-- *************************** Generate Random Number ends  *****************************  -->
 
 
 
