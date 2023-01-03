@@ -8,7 +8,10 @@
     $conn = $database->connect();
     
     if(isset($_GET["noOfRows"]) ){
+
         $noOfRows = mysqli_real_escape_string($conn,$_GET['noOfRows']);
+        // echo $noOfRows;
+        // die();
         // echo $noOfRows;  
          //$sql = "SELECT * FROM certificate ";
         $sql = "SELECT * FROM certificates ORDER BY id DESC LIMIT ".$noOfRows."";
@@ -84,8 +87,8 @@
 
             }      
     }
-    echo "  <script>
-                window.location.replace('./index');
-            </script>
-        ";
+    // echo "  <script>
+    //             window.location.replace('./index');
+    //         </script>
+    //     ";
 ?>
