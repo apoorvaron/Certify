@@ -47,6 +47,28 @@
             require('../database.php');
             $database = new Database();
             $db = $database->connect();
+
+
+            $sql = "SELECT * FROM certificates ORDER BY id DESC LIMIT 1";
+            $result = mysqli_query($db, $sql);
+
+            if(mysqli_num_rows($result) > 0){
+                $row = mysqli_fetch_array($result);
+                $u = $row['uniqueNo'];
+                $id = substr($u, -4);
+                // echo $id;
+                ord($id);
+                
+            }
+            else{
+                $id = 1;
+            }
+            $unique = "000";
+            $id = $id+1;
+            $unique=  "".$unique.$id. "";
+
+
+
         
             $name = $_POST['name'];
             $email = $_POST['email'];
@@ -54,14 +76,22 @@
             $branch = $_POST['branch'];
             // $shortenLink = "".$siteName."".$short;
  
-            $sql = "INSERT INTO `certificates` (`name`,`email`, `enrollment`, `branch`) VALUES ('$name','$email', '$enrollment', '$branch')";
-            echo  "<br><br><br><br><br><br><br><br><br><br><br>sadfhgj,etasrydjfhghfetarsrydfkguyftuyrsdtufykgulytudrysdtufigjlhlgyftudfiyghkjl..........".$sql;
+            $sql = "INSERT INTO `certificates` (`uniqueNO`,`name`,`email`, `enrollment`, `branch`) VALUES ('$unique','$name','$email', '$enrollment', '$branch')";
+            // echo  "<br><br><br><br><br><br><br><br><br><br><br>sadfhgj,etasrydjfhghfetarsrydfkguyftuyrsdtufykgulytudrysdtufigjlhlgyftudfiyghkjl..........".$sql;
             $result = mysqli_query($db,$sql);
             if($result){
+
+
+                $noOfRows = 1;
+                echo "  <script>
+                            window.location.replace('./bulkDown.php?noOfRows=". $noOfRows ."')    
+                        </script>";
+
+
                 echo "  <script>
                             $(document).ready(function(){
                                 swal('Successfully Created !!','','success').then(function() {
-                                    window.location = './index.php?username=".$_GET['username']."&uno=".$_GET['uno']."';
+                                    window.location = './index';
                                 });
                             });
                         </script>";
@@ -126,7 +156,7 @@
                                                     <div class="col-md-12">
                                                         <div class="form-group">
                                                             <!-- <label>Original Link</label> -->
-                                                            <input type="text"  class="form-control" id="email" name="email" required placeholder="Email"/>
+                                                            <input type="email"  class="form-control" id="email" name="email" required placeholder="Email"/>
                                                         </div>
                                                     </div>
                                                 </div>
