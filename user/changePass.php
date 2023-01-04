@@ -4,13 +4,13 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <title>Change Credentials</title>
+        <title>Change Password</title>
         <meta content="Admin Dashboard" name="description" />
         <meta content="themesdesign" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         
-  <link rel="icon" type="image/x-icon" href= "../assets/img/logo.png">
+  <link rel="icon" type="image/x-icon" href= "../assets/images/logout-logo.png">
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
@@ -34,7 +34,7 @@
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
                                         <h4 class="page-title">Change Your Password</h4>
-                                       <!-- <a href="profile.php"><button type="submit" class="btn btn-danger waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">My Profile</button></a> -->
+                                       <!-- <a href="profile"><button type="submit" class="btn btn-danger waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">My Profile</button></a> -->
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>Old Password</label>
-                                                        <input type="password" class="form-control" name="oldPass" id="oldPass" required placeholder="Old Password"/>
+                                                        <input type="text" class="form-control" name="oldPass" id="oldPass" required placeholder="Old Password"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
@@ -120,17 +120,17 @@
 
                         if($newPass==$cnfrmPass){
 
-                            $query = "SELECT * from users WHERE username='".$_GET['username']."'";
+                            $query = "SELECT * from users WHERE email='".$_SESSION['email']."'";
                             $result = mysqli_query($db,$query);
                             $row = mysqli_fetch_array($result);
                             // echo "<br><br><br><br><br><br>waesgrdhtfjytrgweqrtshdjfg,hftrwteyjg,hk.jg".$query;
 
                             if($row['password']==$oldPass){
-                                $sql = "UPDATE users SET password = '".$newPass."' WHERE username='".$_GET['username']."';";
+                                $sql = "UPDATE users SET password = '".$newPass."' WHERE email='".$_SESSION['email']."'";
                                 // echo "<br><br><br><br><br><br>waesgrdhtfjytrgweqrtshdjfg,hftrwteyjg,hk.jg".$sql;
                                 $result = mysqli_query($db,$sql);
                                 
-                                $query = "SELECT * from users WHERE username='".$_GET['username']."'";
+                                $query = "SELECT * from users  WHERE email='".$_SESSION['email']."'";
                                 $result = mysqli_query($db,$query);
                                 $row = mysqli_fetch_array($result);
                                 if($row['password']==$newPass){
@@ -139,7 +139,12 @@
         
                                 }else{
                                     $alertMsz = "Try Again !!";
-                                    include '../user/alertModal-red.php';
+                                    echo "  <script>
+                                                $(document).ready(function(){
+                                                    swal('Try Again !!','','error').then(function() {
+                                                    });
+                                                });
+                                            </script>";
         
                                 }
                                 
@@ -150,6 +155,7 @@
                             }
 
                         }else{
+                            // echo "sadfdsfghjhgfdtrseasrdtyfgjhfdtryfughkgftdrstdyfughkgftdrstdyfghkl";
                             $alertMsz = "Enter Same Password !!";
                             include '../user/alertModal-red.php';
 

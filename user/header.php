@@ -159,7 +159,7 @@
                             </li> -->
                         
                             <li>
-                                <a href="changeCredentials" class="waves-effect waves-light"><i class="ti-lock"></i><span> Change Credentials </span></a>
+                                <a href="changePass" class="waves-effect waves-light"><i class="ti-lock"></i><span> Change Password </span></a>
                             </li>
                             <li>
                                 <a href="./logout" class="waves-effect waves-light"><i class="mdi mdi-logout"></i><span> Logout </span></a>

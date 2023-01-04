@@ -1,8 +1,9 @@
-<!-- readme update (sitename, )
-swal alert
-change password
-utkrisht image change , coordinates
-single generate -->
+<!-- 
+    readme update (site name , template , single coordinate , bulk creadte coordinate)
+    swal alert
+    change password
+    single generate 
+-->
 
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
