@@ -71,12 +71,11 @@
 
         
             $name = $_POST['name'];
-            $email = $_POST['email'];
             $enrollment = $_POST['enrollment'];
             $branch = $_POST['branch'];
             // $shortenLink = "".$siteName."".$short;
  
-            $sql = "INSERT INTO `certificates` (`uniqueNO`,`name`,`email`, `enrollment`, `branch`) VALUES ('$unique','$name','$email', '$enrollment', '$branch')";
+            $sql = "INSERT INTO `certificates` (`uniqueNO`,`name`, `branch`, `enrollment`) VALUES ('$unique','$name', '$branch', '$enrollment')";
             // echo  "<br><br><br><br><br><br><br><br><br><br><br>sadfhgj,etasrydjfhghfetarsrydfkguyftuyrsdtufykgulytudrysdtufigjlhlgyftudfiyghkjl..........".$sql;
             $result = mysqli_query($db,$sql);
             if($result){
@@ -88,13 +87,13 @@
                         </script>";
 
 
-                echo "  <script>
-                            $(document).ready(function(){
-                                swal('Successfully Created !!','','success').then(function() {
-                                    window.location = './index';
-                                });
-                            });
-                        </script>";
+                // echo "  <script>
+                //             $(document).ready(function(){
+                //                 swal('Successfully Created !!','','success').then(function() {
+                //                     window.location = './index';
+                //                 });
+                //             });
+                //         </script>";
             }else{
                     echo "  <script>
                                 $(document).ready(function(){
@@ -152,14 +151,6 @@
                                                     </div>
                                                 </div>
                                     
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <!-- <label>Original Link</label> -->
-                                                            <input type="email"  class="form-control" id="email" name="email" required placeholder="Email"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                     
 
                                     

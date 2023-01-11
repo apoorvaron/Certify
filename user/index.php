@@ -70,9 +70,9 @@
                                                     <th>Sl.No</th>
                                                     <th>Unique No.</th>
                                                     <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Enrollment No.</th>
                                                     <th>Branch</th>
+                                                    <th>Enrollment No.</th>
+                                                    
                                                     <th>Download</th>
                                                     <th>Delete</th>
                                                    
@@ -96,9 +96,8 @@
                                                                             <td>".$row['id']."</td>
                                                                             <td>".$row['uniqueNo']."</td>
                                                                             <td>".$row['name']."</td>
-                                                                            <td>".$row['email']."</td>
-                                                                            <td>".$row['enrollment']."</td>
                                                                             <td>".$row['branch']."</td>
+                                                                            <td>".$row['enrollment']."</td>
                                                                             <td><a href='../verify/".$row['uniqueNo'].".pdf' download> <button type='button' class='tabledit-download-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-arrow-down'></span></button></a></td>
                                                                             <td><a href='./delete?id=".$row['id']."'  class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>
                                                                         
