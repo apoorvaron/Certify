@@ -47,7 +47,7 @@ github readme , sitename , env
 
       $_SESSION['start'] = time();
       $_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
-      echo "<script>window.location.replace('./user/index')</script>";
+      echo "<script>window.location.replace('./admin/index')</script>";
     }
     else{
 
@@ -60,7 +60,7 @@ github readme , sitename , env
             $_SESSION['desc']="";
             $_SESSION['redirection']="./";
             $_SESSION['error']="error";
-            echo "<script>window.location.replace('./user/alert.php');</script>";
+            echo "<script>window.location.replace('./admin/alert.php');</script>";
             
         }else{
           
@@ -69,7 +69,7 @@ github readme , sitename , env
             $_SESSION['redirection']="./";
             $_SESSION['error']="error";
             
-            echo "<script>window.location.replace('./user/alert.php');</script>";
+            echo "<script>window.location.replace('./admin/alert.php');</script>";
         }
 
     }
@@ -90,10 +90,10 @@ github readme , sitename , env
 
         <link href="./assets/img/logo.png" rel="icon" />
 
-        <link href="./user/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="./user/assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
-        <link href="./user/assets/css/icons.css" rel="stylesheet" type="text/css">
-        <link href="./user/assets/css/style.css" rel="stylesheet" type="text/css">
+        <link href="./admin/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="./admin/assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
+        <link href="./admin/assets/css/icons.css" rel="stylesheet" type="text/css">
+        <link href="./admin/assets/css/style.css" rel="stylesheet" type="text/css">
 <style>
 
 img.vert-move {
@@ -223,19 +223,19 @@ img.vert-move {
         </script>
 
         <!-- jQuery  -->
-        <script src="./user/assets/js/jquery.min.js"></script>
-        <script src="./user/assets/js/bootstrap.bundle.min.js"></script>
-        <script src="./user/assets/js/modernizr.min.js"></script>
-        <script src="./user/assets/js/detect.js"></script>
-        <script src="./user/assets/js/fastclick.js"></script>
-        <script src="./user/assets/js/jquery.slimscroll.js"></script>
-        <script src="./user/assets/js/jquery.blockUI.js"></script>
-        <script src="./user/assets/js/waves.js"></script>
-        <script src="./user/assets/js/jquery.nicescroll.js"></script>
-        <script src="./user/assets/js/jquery.scrollTo.min.js"></script>
+        <script src="./admin/assets/js/jquery.min.js"></script>
+        <script src="./admin/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="./admin/assets/js/modernizr.min.js"></script>
+        <script src="./admin/assets/js/detect.js"></script>
+        <script src="./admin/assets/js/fastclick.js"></script>
+        <script src="./admin/assets/js/jquery.slimscroll.js"></script>
+        <script src="./admin/assets/js/jquery.blockUI.js"></script>
+        <script src="./admin/assets/js/waves.js"></script>
+        <script src="./admin/assets/js/jquery.nicescroll.js"></script>
+        <script src="./admin/assets/js/jquery.scrollTo.min.js"></script>
 
         <!-- App js -->
-        <script src="./user/assets/js/app.js"></script>
+        <script src="./admin/assets/js/app.js"></script>
 
 
         <!-- Parsley js -->
