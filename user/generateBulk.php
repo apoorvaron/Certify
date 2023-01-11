@@ -100,7 +100,7 @@
                 
             
                     if($i>0){
-                        $query="INSERT INTO certificates (uniqueNO, name,email, enrollment,branch) values (".$unique.rtrim($q,",").");";
+                        $query="INSERT INTO certificates (uniqueNO, name,branch,enrollment) values (".$unique.rtrim($q,",").");";
                         $array = explode(',', $q);
                         // echo $q;
                         $email = $array [1];

@@ -55,10 +55,9 @@
                     $marge_bottom = 43;
                     $sx = imagesx($qr);
                     $sy = imagesy($qr);
-                    imagettftext($image, 50, 0, 720, 790, $color,$font, $name);
-                    imagettftext($image, 30, 0, 450, 910, $color,$font, $branch);
-                    imagettftext($image, 30, 0, 1300, 910, $color,$font, $enroll);
-                    imagettftext($image, 30, 0, 1300, 975, $color,$font, $mentor);
+                    imagettftext($image, 50, 0, 720, 770, $color,$font, $name);
+                    imagettftext($image, 30, 0, 450, 905, $color,$font, $branch);
+                    imagettftext($image, 30, 0, 1300, 905, $color,$font, $enroll);
                     //imagettftext($image, 30, 0, 1480, 900, $color,$font, $rank);
                     imagecopy($image, $qr, imagesx($image) - $sx - $marge_right, imagesy($image) - $sy - $marge_bottom, 0, 0, imagesx($qr), imagesy($qr));
                     unlink($file);
