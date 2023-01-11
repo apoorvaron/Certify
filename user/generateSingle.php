@@ -55,7 +55,6 @@
             $name = $_POST['name'];
             $enrollment = $_POST['enrollment'];
             $branch = $_POST['branch'];
-            // $shortenLink = "".$siteName."".$short;
  
             $sql = "INSERT INTO `certificates` (`uniqueNO`,`name`, `branch`, `enrollment`) VALUES ('$unique','$name', '$branch', '$enrollment')";
             // echo  "<br><br><br><br><br><br><br><br><br><br><br>sadfhgj,etasrydjfhghfetarsrydfkguyftuyrsdtufykgulytudrysdtufigjlhlgyftudfiyghkjl..........".$sql;
@@ -232,17 +231,7 @@
                     </div>
                 </div>
 
-                <script>
-
-                    function join(){
-                        let value = $('#shortenLink').val();
-                        let new_text = value.split(' ').join('_');
-                        let shortlink = "<?php echo $siteName ?>"+new_text;
-                        $('#modal').html(shortlink);
-                        console.log(new_text);
-
-                    }
-                </script>
+               
 
           <!-- *************************** Get preview modal ends   *****************************  -->
 

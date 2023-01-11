@@ -1,9 +1,7 @@
-<!-- certificates generated alert 
-qr code link dynamic ?
-after success delete certi , swal
+<!-- 
+certificates generated alert 
 url me se user->admin
-github readme 
-hosting 
+github readme , sitename , env
 -->
 
 
