@@ -1,6 +1,5 @@
 <!-- 
 certificates generated alert 
-url me se user->admin
 github readme , sitename , env
 -->
 
