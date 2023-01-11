@@ -1,23 +1,15 @@
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- certificates generated alert 
+qr code link dynamic ?
+after success delete certi , swal
+url me se user->admin
+github readme 
+hosting 
+-->
+
 
         <!-- jQuery CDN -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<style>
 
-    .swal-overlay {
-        background-color: #0e1d34;
-    }
-    .swal-button {
-        padding: 7px 19px;
-        border-radius: 2px;
-        background-color: #4962B3;
-        font-size: 12px;
-        border: 1px solid #3e549a;
-        text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
-    }
-
-
-</style>
 
 <?php
         session_start();
@@ -65,20 +57,21 @@
         $result = mysqli_query($db,$query);
 
         if(mysqli_num_rows($result)==1){
-            echo "  <script>
-                        $(document).ready(function(){
-                            swal('Wrong Password !!','','error').then(function() {
-                            });
-                        });
-                    </script>";
+     
+            $_SESSION['alertmsz']="Wrong Password !!";
+            $_SESSION['desc']="";
+            $_SESSION['redirection']="./";
+            $_SESSION['error']="error";
+            echo "<script>window.location.replace('./user/alert.php');</script>";
+            
         }else{
-            echo "  <script>
-                        $(document).ready(function(){
-                            swal('You are not Authorised !!','','error').then(function() {
-                                window.location='./';
-                            });
-                        });
-                    </script>";
+          
+            $_SESSION['alertmsz']="You are not Authorised !!";
+            $_SESSION['desc']="";
+            $_SESSION['redirection']="./";
+            $_SESSION['error']="error";
+            
+            echo "<script>window.location.replace('./user/alert.php');</script>";
         }
 
     }

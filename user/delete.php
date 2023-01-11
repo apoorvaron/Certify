@@ -52,12 +52,23 @@
 
 
 
-
+        session_start();
         if(($result)==1){
-            header('location: ./');
+            $_SESSION['alertmsz']="Successfully Deleted !!";
+            $_SESSION['desc']="";
+            $_SESSION['redirection']="./";
+            $_SESSION['error']="success";
+
+            echo "<script>window.location.replace('./alert.php');</script>";
             
         }else{
-            header('location: ./');
+
+            $_SESSION['alertmsz']="Try Again !!";
+            $_SESSION['desc']="";
+            $_SESSION['redirection']="./";
+            $_SESSION['error']="error";
+
+            echo "<script>window.location.replace('./alert.php');</script>";
         }
     }
 

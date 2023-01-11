@@ -358,10 +358,8 @@
                                     </button>
                                 </li>
                                 <li class="hide-phone app-search mt-4">
-                                <?php   
-                                            $headerName =strstr($_SESSION['email'] , '@', true);
-                                            echo "<h4 style='color:#fff;'>Hello ".$headerName." !</h4>";               
-                                ?>
+                              
+                                    <h4 style='color:#fff;'>Hello Admin !</h4>              
 
                        
                                 </li>
