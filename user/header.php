@@ -158,9 +158,9 @@
                                 <a href="transcations.php" class="waves-effect waves-light"><i class="mdi mdi-wallet"></i><span> Transaction </span></a>
                             </li> -->
                         
-                            <li>
+                            <!-- <li>
                                 <a href="changePass" class="waves-effect waves-light"><i class="ti-lock"></i><span> Change Password </span></a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="./logout" class="waves-effect waves-light"><i class="mdi mdi-logout"></i><span> Logout </span></a>
                             </li>

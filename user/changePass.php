@@ -106,61 +106,61 @@
 
                 </div> <!-- content -->
                 <?php
-                    if(isset($_POST['submit'])){
-                        // require('../admin/dBconn/database.php');
-                        $database = new Database();
-                        $db = $database->connect();
+                    // if(isset($_POST['submit'])){
+                    //     // require('../admin/dBconn/database.php');
+                    //     $database = new Database();
+                    //     $db = $database->connect();
                     
-                        $oldPass = $_POST['oldPass'];
-                        $newPass = $_POST['newPass'];
-                        $cnfrmPass = $_POST['cnfrmPass'];
-                        $oldPass = md5($oldPass);
-                        $newPass = md5($newPass);
-                        $cnfrmPass = md5($cnfrmPass);
+                    //     $oldPass = $_POST['oldPass'];
+                    //     $newPass = $_POST['newPass'];
+                    //     $cnfrmPass = $_POST['cnfrmPass'];
+                    //     $oldPass = md5($oldPass);
+                    //     $newPass = md5($newPass);
+                    //     $cnfrmPass = md5($cnfrmPass);
 
-                        if($newPass==$cnfrmPass){
+                    //     if($newPass==$cnfrmPass){
 
-                            $query = "SELECT * from users WHERE email='".$_SESSION['email']."'";
-                            $result = mysqli_query($db,$query);
-                            $row = mysqli_fetch_array($result);
-                            // echo "<br><br><br><br><br><br>waesgrdhtfjytrgweqrtshdjfg,hftrwteyjg,hk.jg".$query;
+                    //         $query = "SELECT * from users WHERE email='".$_SESSION['email']."'";
+                    //         $result = mysqli_query($db,$query);
+                    //         $row = mysqli_fetch_array($result);
+                    //         // echo "<br><br><br><br><br><br>waesgrdhtfjytrgweqrtshdjfg,hftrwteyjg,hk.jg".$query;
 
-                            if($row['password']==$oldPass){
-                                $sql = "UPDATE users SET password = '".$newPass."' WHERE email='".$_SESSION['email']."'";
-                                // echo "<br><br><br><br><br><br>waesgrdhtfjytrgweqrtshdjfg,hftrwteyjg,hk.jg".$sql;
-                                $result = mysqli_query($db,$sql);
+                    //         if($row['password']==$oldPass){
+                    //             $sql = "UPDATE users SET password = '".$newPass."' WHERE email='".$_SESSION['email']."'";
+                    //             // echo "<br><br><br><br><br><br>waesgrdhtfjytrgweqrtshdjfg,hftrwteyjg,hk.jg".$sql;
+                    //             $result = mysqli_query($db,$sql);
                                 
-                                $query = "SELECT * from users  WHERE email='".$_SESSION['email']."'";
-                                $result = mysqli_query($db,$query);
-                                $row = mysqli_fetch_array($result);
-                                if($row['password']==$newPass){
-                                    $alertMsz = "Password Changed !!";
-                                    include '../user/alertModal.php';
+                    //             $query = "SELECT * from users  WHERE email='".$_SESSION['email']."'";
+                    //             $result = mysqli_query($db,$query);
+                    //             $row = mysqli_fetch_array($result);
+                    //             if($row['password']==$newPass){
+                    //                 $alertMsz = "Password Changed !!";
+                    //                 include '../user/alertModal.php';
         
-                                }else{
-                                    $alertMsz = "Try Again !!";
-                                    echo "  <script>
-                                                $(document).ready(function(){
-                                                    swal('Try Again !!','','error').then(function() {
-                                                    });
-                                                });
-                                            </script>";
+                    //             }else{
+                    //                 $alertMsz = "Try Again !!";
+                    //                 echo "  <script>
+                    //                             $(document).ready(function(){
+                    //                                 swal('Try Again !!','','error').then(function() {
+                    //                                 });
+                    //                             });
+                    //                         </script>";
         
-                                }
+                    //             }
                                 
-                            }else{
-                                $alertMsz = "Old Password Incorrect !!";
-                                include '../user/alertModal-red.php';
+                    //         }else{
+                    //             $alertMsz = "Old Password Incorrect !!";
+                    //             include '../user/alertModal-red.php';
     
-                            }
+                    //         }
 
-                        }else{
-                            // echo "sadfdsfghjhgfdtrseasrdtyfgjhfdtryfughkgftdrstdyfughkgftdrstdyfghkl";
-                            $alertMsz = "Enter Same Password !!";
-                            include '../user/alertModal-red.php';
+                    //     }else{
+                    //         // echo "sadfdsfghjhgfdtrseasrdtyfgjhfdtryfughkgftdrstdyfughkgftdrstdyfghkl";
+                    //         $alertMsz = "Enter Same Password !!";
+                    //         include '../user/alertModal-red.php';
 
-                        }
-                    }
+                    //     }
+                    // }
                 ?>
 
                 <?php include'footer.php';?>
