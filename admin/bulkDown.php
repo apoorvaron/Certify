@@ -84,8 +84,15 @@
                 readfile("../verify/BulkDownload.zip");
                 unlink('../verify/BulkDownload.zip');
 
+                // session_start();
+                // $_SESSION['alertmsz']="Successfully Created !!";
+                // $_SESSION['desc']="";
+                // $_SESSION['redirection']="./";
+                // $_SESSION['error']="success";
+                // echo "<script>window.location.replace('./alert.php');</script>";
             }      
     }
+
     // echo "  <script>
     //             window.location.replace('./index');
     //         </script>

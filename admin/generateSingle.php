@@ -59,16 +59,24 @@
             $sql = "INSERT INTO `certificates` (`uniqueNO`,`name`, `branch`, `enrollment`) VALUES ('$unique','$name', '$branch', '$enrollment')";
             // echo  "<br><br><br><br><br><br><br><br><br><br><br>sadfhgj,etasrydjfhghfetarsrydfkguyftuyrsdtufykgulytudrysdtufigjlhlgyftudfiyghkjl..........".$sql;
             $result = mysqli_query($db,$sql);
+            session_start(); 
             if($result){
 
 
                 $noOfRows = 1;
+
+                // $_SESSION['alertmsz']="Successfully Created !!";
+                // $_SESSION['desc']="";
+                // $_SESSION['redirection']="./bulkDown.php?noOfRows=". $noOfRows ."";
+                // $_SESSION['error']="success";
+                // echo "<script>window.location.replace('./alert.php');</script>";
+
                 echo "  <script>
                             window.location.replace('./bulkDown.php?noOfRows=". $noOfRows ."')    
                         </script>";
             }else{
                   
-                    session_start();               
+                                  
                     $_SESSION['alertmsz']="Try Again !!";
                     $_SESSION['desc']="";
                     $_SESSION['redirection']="./";
@@ -121,7 +129,7 @@
                                                     <div class="col-md-12">
                                                         <div class="form-group">
                                                             <label> <b> Name </b></label>
-                                                            <input type="text"  class="form-control" id="name" name="name" required placeholder="Ex: Apoorv Aron"/>
+                                                            <input type="text"  class="form-control" id="name" name="name" required placeholder="Ex: Apoorv Aron" maxlength="13"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -133,7 +141,7 @@
                                                     <div class="col-md-12">
                                                         <div class="form-group">
                                                             <label> <b> Branch </b></label>
-                                                            <input type="text"  class="form-control" id="branch" name="branch" required placeholder="Ex: B.Tech IT"/>
+                                                            <input type="text"  class="form-control" id="branch" name="branch" required placeholder="Ex: B.Tech IT" maxlength="12"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -143,7 +151,7 @@
                                                         <div class="form-group">
                                                             <label> <b> Enrollment No. </b></label>
                                                             
-                                                            <input type="text"  class="form-control" id="enrollment" name="enrollment" required placeholder="Ex: 01316401520"/> 
+                                                            <input type="text"  class="form-control" id="enrollment" name="enrollment" required placeholder="Ex: 01316401520" maxlength="14"/> 
                                                         </div>
                                                     </div>
                                                 </div>
