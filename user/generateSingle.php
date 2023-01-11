@@ -112,7 +112,7 @@
                                                 <i class="mdi mdi-information-outline font-32"></i><strong>Shorty</strong> 
                                             </div> -->
 <!--              -->
-                                            <h3 class="mt-0 header-title">Generate Single Certificate</h3>
+                                            <!-- <h3 class="mt-0 header-title">Generate Single Certificate</h3> -->
                                             <!-- <p class="text-muted font-14"></p> -->
             
                                             <form  method="POST"  >
@@ -120,8 +120,8 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <!-- <label>Original Link</label> -->
-                                                            <input type="text"  class="form-control" id="name" name="name" required placeholder="Name"/>
+                                                            <label> <b> Name </b></label>
+                                                            <input type="text"  class="form-control" id="name" name="name" required placeholder="Ex: Apoorv Aron"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -132,8 +132,8 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <!-- <label>Original Link</label> -->
-                                                            <input type="text"  class="form-control" id="branch" name="branch" required placeholder="Branch"/>
+                                                            <label> <b> Branch </b></label>
+                                                            <input type="text"  class="form-control" id="branch" name="branch" required placeholder="Ex: B.Tech IT"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -141,8 +141,9 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <!-- <label>Original Link</label> -->
-                                                            <input type="text"  class="form-control" id="enrollment" name="enrollment" required placeholder="Enrollment No."/> 
+                                                            <label> <b> Enrollment No. </b></label>
+                                                            
+                                                            <input type="text"  class="form-control" id="enrollment" name="enrollment" required placeholder="Ex: 01316401520"/> 
                                                         </div>
                                                     </div>
                                                 </div>
