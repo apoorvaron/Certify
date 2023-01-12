@@ -5,24 +5,25 @@
 - PHP version used -> ( 8.1.9 )
 
 
-- Must install xampp (FOR WINDOWS) & MAMP (FOR MAC) 
+- Must install xampp or  MAMP 
 - Tutorial - https://www.youtube.com/watch?v=at19OmH2Bg4
 - MySQL version used -> ( 8.0.29 )
 
 -------*---------*---------*---------*---------*---------
-## Live Site -> http://shrty.rf.gd/
+## Live Site -> http://certify.rf.gd
 
 
 Step -1   Download zip file 
 
-Step -2   Unzip it & Rename folder from "tiny-main" to "tiny"
+Step -2   Unzip it & Rename folder from "Certify-main" to "certify"
 
-Step -3   Put tiny folder inside 
+Step -3   Put certify folder inside 
 
-          /Applications/MAMP/htdocs/  folder  (FOR MAC)
-          C:/xampp/htdocs/            folder  (FOR WINDOWS)
+          /Applications/MAMP/htdocs/   folder  (FOR MAC & MAMP)
+          /Applications/xampp/htdocs/  folder  (FOR MAC & xampp)
+          C:/xampp/htdocs/             folder  (FOR WINDOWS)
 
-Step -4   Set below snippet inside /Applications/MAMP/htdocs/tiny/env.php. file (FOR MAC & having MAMP)
+Step -4   Set below snippet inside /Applications/MAMP/htdocs/certify/env.php. file (FOR MAC & having MAMP)
           
             <?php
                 $env_server = "localhost";
@@ -32,8 +33,7 @@ Step -4   Set below snippet inside /Applications/MAMP/htdocs/tiny/env.php. file 
                 $env_port = "8889";
             ?>
 
-Step -4   Set below snippet inside htdocs/tiny/env.php. file (FOR WINDOWS & XAMPP)
-          
+Step -4   Set below snippet inside htdocs/certify/env.php. file (FOR WINDOWS & XAMPP) ||  (FOR MAC & XAMPP)
 
             <?php
                  $env_server = "localhost:3306";
