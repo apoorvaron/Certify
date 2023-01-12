@@ -29,7 +29,7 @@ Step -4   Set below snippet inside /Applications/MAMP/htdocs/certify/env.php. fi
                 $env_server = "localhost";
                 $env_username = "root";
                 $env_password = "root";
-                $env_database = "tiny";
+                $env_database = "certify";
                 $env_port = "8889";
             ?>
 
@@ -39,7 +39,7 @@ Step -4   Set below snippet inside htdocs/certify/env.php. file (FOR WINDOWS & X
                  $env_server = "localhost:3306";
                  $env_username = "root";
                  $env_password = "";
-                 $env_database = "tiny";
+                 $env_database = "certify";
                  $env_port = "3306";
             ?>
 
