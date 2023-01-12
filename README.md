@@ -1,10 +1,5 @@
 # How to make this for Yourself 📖
 
-- Must install PHP version (FOR WINDOWS) & (FOR MAC) Both
-- Tutorial - https://www.youtube.com/watch?v=mVBe75aGBHQ
-- PHP version used -> ( 8.1.9 )
-
-
 - Must install xampp or  MAMP 
 - Tutorial - https://www.youtube.com/watch?v=at19OmH2Bg4
 - MySQL version used -> ( 8.0.29 )
