@@ -86,12 +86,15 @@ Step -12   Run in browser
           localhost:8888/certify/     (FOR MAMP)
           localhost/certify/          (FOR XAMPP)
 
-! IMPORTANT -> users table must contain one row i.e admin id & password
+! IMPORTANT -> users table must contain one row
 
-          1) uniqueNo = "shorty"
-          2) email = "shorty@gmail.com"
-          3) password = "62b5fe5724b08db455672377fb31e95b"
-          
+          1) email = "certify@gmail.com"
+          2) password = "42f98fd895f6f48f084aac8f4d8c9c6c"
+
+-> admin id & password
+          1) email = "certify@gmail.com"
+          2) password = "certify@gmail.com"
+
 -> While Hosing
 
           1) Change env.php credentials
