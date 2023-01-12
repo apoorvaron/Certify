@@ -17,8 +17,10 @@ Step -3   Put certify folder inside
           /Applications/MAMP/htdocs/   folder  (FOR MAC & MAMP)
           /Applications/xampp/htdocs/  folder  (FOR MAC & xampp)
           C:/xampp/htdocs/             folder  (FOR WINDOWS & xampp)
+              
+Step -4   Create a folder "verify" inside htdocs/certify/ 
 
-Step -4   Set below snippet inside /Applications/MAMP/htdocs/certify/env.php. file (FOR MAC & having MAMP)
+Step -5   Set below snippet inside /Applications/MAMP/htdocs/certify/env.php. file (FOR MAC & having MAMP)
           
             <?php
                 $env_server = "localhost";
@@ -28,7 +30,7 @@ Step -4   Set below snippet inside /Applications/MAMP/htdocs/certify/env.php. fi
                 $env_port = "8889";
             ?>
 
-Step -4   Set below snippet inside htdocs/certify/env.php. file (FOR WINDOWS & XAMPP) ||  (FOR MAC & XAMPP)
+Step -5   Set below snippet inside htdocs/certify/env.php. file (FOR WINDOWS & XAMPP) ||  (FOR MAC & XAMPP)
 
             <?php
                  $env_server = "localhost:3306";
@@ -38,7 +40,7 @@ Step -4   Set below snippet inside htdocs/certify/env.php. file (FOR WINDOWS & X
                  $env_port = "3306";
             ?>
 
-Step -5   Create ".htaccess" file inside htdocs/certify/ and Paste below code snippet.(FOR MAC & having MAMP)
+Step -6   Create ".htaccess" file inside htdocs/certify/ and Paste below code snippet.(FOR MAC & having MAMP)
 
                 RewriteEngine On
                 RewriteCond %{REQUEST_FILENAME} !-d
@@ -54,7 +56,7 @@ Step -5   Create ".htaccess" file inside htdocs/certify/ and Paste below code sn
                 RewriteRule ^(.*)$ index.php?/$1 [L]
 
                 
-Step -6   Change the file content inside certify/htdocs/siteName.php
+Step -7   Change the file content inside certify/htdocs/siteName.php
 
           1) FOR MAC & MAMP
                 <?php
@@ -66,22 +68,22 @@ Step -6   Change the file content inside certify/htdocs/siteName.php
                     $siteName = "http://localhost/certify/";
                 ?>
                 
-Step -7   Start Apache & MySQL server in XAMPP Panel or MAMP Panel
+Step -8   Start Apache & MySQL server in XAMPP Panel or MAMP Panel
 
-Step -8   To Setup the database, open 
+Step -9   To Setup the database, open 
 
           localhost:8888/phpmyadmin    (FOR MAMP)
           localhost/phpmyadmin         (FOR XAMPP)
 
-Step -9   Create New Database 
+Step -10   Create New Database 
 
-Step -10   Database name  "certify"
+Step -11   Database name  "certify"
 
-Step -11   Import Database from "htdocs/tiny/certify.sql" directory . 
+Step -12   Import Database from "htdocs/tiny/certify.sql" directory . 
 
            certify.sql (db file)
 
-Step -12   Run in browser 
+Step -13   Run in browser 
 
           localhost:8888/certify/     (FOR MAMP)
           localhost/certify/          (FOR XAMPP)
@@ -92,6 +94,7 @@ Step -12   Run in browser
           2) password = "42f98fd895f6f48f084aac8f4d8c9c6c"
 
 -> admin id & password
+
           1) email = "certify@gmail.com"
           2) password = "certify@gmail.com"
 
